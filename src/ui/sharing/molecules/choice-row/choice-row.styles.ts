@@ -1,0 +1,42 @@
+import { createStyles, radius, spacing, stroke, touch } from "~styles";
+
+export const useChoiceRowStyles = createStyles(({ colors }) => ({
+	row: {
+		flexDirection: "row",
+		alignItems: "center",
+		gap: spacing.md + 2,
+		minHeight: touch.minSize,
+		paddingHorizontal: spacing.lg,
+		paddingVertical: spacing.md + 2,
+		borderRadius: radius.md,
+		borderWidth: stroke.thin,
+		borderColor: colors.border,
+		backgroundColor: colors.card,
+	},
+	texts: { flex: 1, gap: spacing.xs },
+	box: {
+		width: 32,
+		height: 32,
+		borderRadius: radius.sm,
+		borderWidth: stroke.thin,
+		borderColor: colors.input,
+		backgroundColor: colors.card,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	boxOn: { backgroundColor: colors.primary, borderColor: colors.primary },
+	state: {
+		alignSelf: "flex-start",
+		marginTop: spacing.xs,
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+		gap: spacing.xs,
+		paddingHorizontal: spacing.md,
+		paddingVertical: spacing.xs,
+		borderRadius: radius.full,
+		borderWidth: stroke.thin,
+		borderColor: colors.input,
+	},
+	stateOn: { backgroundColor: colors.primary, borderColor: colors.primary },
+}));

@@ -1,0 +1,24 @@
+{
+	"extends": "expo/tsconfig.base",
+	"compilerOptions": {
+		"types": ["vitest-native/rntl-matchers"],
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"paths": {
+			"~assets/*": ["./assets/*"],
+			"~sharing/*": ["./src/ui/sharing/*"],
+			"~instructor/*": ["./src/ui/instructor/*"],
+			"~styles": ["./src/ui/sharing/styles/index.ts"],
+			"~styles/*": ["./src/ui/sharing/styles/*"],
+			"~contexts/*": ["./src/logic/contexts/*"],
+			"~fixtures/*": ["./src/logic/fixtures/*"],
+			"~messages": ["./src/logic/messages/index.ts"],
+			"~queries": ["./src/logic/queries/index.ts"],
+			"~schemas/*": ["./src/logic/schemas/*"],
+			"~services/*": ["./src/logic/services/*"],
+			"~typing/*": ["./src/logic/typing/*"],
+			"~utils/*": ["./src/logic/utils/*"]
+		}
+	},
+	"include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+}

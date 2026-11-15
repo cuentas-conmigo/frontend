@@ -1,0 +1,219 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.6.7/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	},
+	"files": {
+		"ignoreUnknown": false,
+		"includes": [
+			"**",
+			"!**/*.svg",
+			"!**/*.md",
+			"!!**/node_modules",
+			"!!**/.expo",
+			"!!**/dist",
+			"!!**/web-build",
+			"!!**/ios",
+			"!!**/android",
+			"!!**/coverage",
+			"!!**/expo-env.d.ts",
+			"!!.claude",
+			"!!.vscode",
+			"!!skills-lock.json",
+			"!!**/bun.lock",
+			"!!**/.DS_Store",
+			"!!**/.env",
+			"!!**/.env.*"
+		]
+	},
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": false,
+		"indentStyle": "tab",
+		"indentWidth": 2,
+		"lineEnding": "lf",
+		"lineWidth": 100,
+		"attributePosition": "auto",
+		"bracketSpacing": true
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": {
+					"level": "on",
+					"options": {
+						"groups": [
+							{ "type": false, "source": [":BUN:", ":NODE:"] },
+							{
+								"type": false,
+								"source": [
+									"react",
+									"react/**",
+									"react-native",
+									"react-native-*",
+									"react-native-*/**"
+								]
+							},
+							{
+								"type": false,
+								"source": ["expo", "expo-*", "expo-*/**", "@expo/**", "@expo-google-fonts/**"]
+							},
+							{ "type": false, "source": [":PACKAGE:"] },
+							{
+								"type": false,
+								"source": [
+									"~contexts/**",
+									"~services/**",
+									"~utils/**",
+									"~messages",
+									"~fixtures/**",
+									"~styles",
+									"~styles/**",
+									"~sharing/**",
+									"~instructor/**",
+									"~assets/**"
+								]
+							},
+							":BLANK_LINE:",
+							{
+								"type": true,
+								"source": [":BUN:", ":NODE:", ":PACKAGE:", "~typing/**", ":ALIAS:", ":PATH:"]
+							},
+							":BLANK_LINE:",
+							{ "type": false, "source": [":ALIAS:", ":PATH:"] }
+						]
+					}
+				}
+			}
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "none",
+			"a11y": {
+				"preset": "recommended"
+			},
+			"complexity": {
+				"noExtraBooleanCast": "error",
+				"noUselessCatch": "error",
+				"noUselessTypeConstraint": "error",
+				"noForEach": "error",
+				"noUselessFragments": "error",
+				"noUselessRename": "error",
+				"noUselessStringConcat": "error",
+				"noUselessTernary": "error",
+				"useFlatMap": "error",
+				"noAdjacentSpacesInRegex": "error",
+				"noUselessContinue": "error",
+				"useWhile": "error"
+			},
+			"correctness": {
+				"noConstAssign": "error",
+				"noConstantCondition": "error",
+				"noEmptyCharacterClassInRegex": "error",
+				"noEmptyPattern": "error",
+				"noGlobalObjectCalls": "error",
+				"noInvalidBuiltinInstantiation": "error",
+				"noInvalidConstructorSuper": "error",
+				"noNonoctalDecimalEscape": "error",
+				"noPrecisionLoss": "error",
+				"noSelfAssign": "error",
+				"noSetterReturn": "error",
+				"noSwitchDeclarations": "error",
+				"noUnreachable": "error",
+				"noUnreachableSuper": "error",
+				"noUnsafeFinally": "error",
+				"noUnsafeOptionalChaining": "error",
+				"noUnusedLabels": "error",
+				"noUnusedPrivateClassMembers": "error",
+				"noUnusedVariables": "error",
+				"useIsNan": "error",
+				"useValidForDirection": "error",
+				"useYield": "error",
+				"noUnusedFunctionParameters": "error",
+				"noUnusedImports": "error",
+				"useExhaustiveDependencies": "error",
+				"useHookAtTopLevel": "error",
+				"useJsxKeyInIterable": "error",
+				"noChildrenProp": "error",
+				"noNestedComponentDefinitions": "error"
+			},
+			"style": {
+				"preset": "recommended",
+				"noDefaultExport": "error",
+				"noNamespace": "error",
+				"noYodaExpression": "error",
+				"useBlockStatements": "off",
+				"useCollapsedElseIf": "error",
+				"useConsistentArrayType": "error",
+				"useConsistentBuiltinInstantiation": "error",
+				"useDefaultSwitchClause": "error",
+				"useEnumInitializers": "off",
+				"useExplicitLengthCheck": "error",
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {
+						"filenameCases": ["kebab-case"]
+					}
+				},
+				"useFragmentSyntax": "error",
+				"useLiteralEnumMembers": "off",
+				"useThrowNewError": "error",
+				"useArrayLiterals": "off",
+				"noEnum": "error",
+				"useImportType": {
+					"level": "error",
+					"options": {
+						"style": "separatedType"
+					}
+				}
+			},
+			"suspicious": {
+				"preset": "recommended",
+				"noEmptyBlockStatements": "error",
+				"noWith": "error",
+				"noArrayIndexKey": "error"
+			}
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"quoteProperties": "asNeeded",
+			"trailingCommas": "es5",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"bracketSameLine": false,
+			"quoteStyle": "double",
+			"attributePosition": "auto",
+			"bracketSpacing": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["src/app/**"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off",
+						"useFilenamingConvention": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["*.config.ts", "*.config.mts", "*.config.js"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		}
+	]
+}

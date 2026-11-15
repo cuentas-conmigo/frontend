@@ -1,0 +1,73 @@
+{
+	"expo": {
+		"name": "Cuentas conmigo",
+		"slug": "cuentasconmigo",
+		"version": "0.1.0",
+		"orientation": "portrait",
+		"icon": "./assets/images/icon.png",
+		"scheme": "cuentasconmigo",
+		"userInterfaceStyle": "automatic",
+		"backgroundColor": "#FFFFFF",
+		"ios": {
+			"bundleIdentifier": "com.tuentyfaiv.cuentasconmigo",
+			"supportsTablet": false,
+			"config": {
+				"usesNonExemptEncryption": false
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"backgroundColor": "#FFFFFF",
+				"foregroundImage": "./assets/images/android-icon-foreground.png",
+				"backgroundImage": "./assets/images/android-icon-background.png",
+				"monochromeImage": "./assets/images/android-icon-monochrome.png"
+			},
+			"predictiveBackGestureEnabled": false,
+			"package": "com.tuentyfaiv.cuentasconmigo"
+		},
+		"web": {
+			"output": "server",
+			"favicon": "./assets/images/favicon.png"
+		},
+		"plugins": [
+			"expo-router",
+			[
+				"expo-splash-screen",
+				{
+					"backgroundColor": "#FFFFFF",
+					"image": "./assets/images/splash-icon.png",
+					"imageWidth": 160,
+					"dark": {
+						"backgroundColor": "#0E1322"
+					}
+				}
+			],
+			[
+				"expo-image-picker",
+				{
+					"cameraPermission": "Cuentas conmigo usa la cámara para tomar la foto del alumno, solo si da su permiso.",
+					"photosPermission": "Cuentas conmigo abre tus fotos para elegir la foto del alumno, solo si da su permiso.",
+					"microphonePermission": false
+				}
+			]
+		],
+		"experiments": {
+			"typedRoutes": true,
+			"reactCompiler": true
+		},
+		"extra": {
+			"router": {
+				"asyncRoutes": {
+					"web": true
+				}
+			},
+			"eas": {
+				"projectId": "21223890-bbd7-4a20-bbfe-5b214d07aa41"
+			}
+		},
+		"owner": "cuentas-conmigo",
+		"updates": {
+			"url": "https://u.expo.dev/21223890-bbd7-4a20-bbfe-5b214d07aa41"
+		}
+	}
+}
