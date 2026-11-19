@@ -3,6 +3,8 @@
  * environment so they never live in the repository: DEMO_USUARIO, DEMO_CLAVE, REVIEW_FIRST_NAME,
  * REVIEW_LAST_NAME and REVIEW_PHONE (with + and country code).
  */
+const { version } = require("./app.json").expo;
+
 const site = "https://cuentasconmigo.tuentyfaiv.com";
 
 const urls = {
@@ -95,6 +97,7 @@ const reviewNotes = [
 module.exports = () => ({
 	configVersion: 0,
 	apple: {
+		version,
 		copyright: `${new Date().getFullYear()} Cuentas conmigo`,
 		categories: ["BUSINESS", "PRODUCTIVITY"],
 		info: {
