@@ -1,0 +1,345 @@
+/* Tokens copied from src/ui/sharing/styles (colors.ts and scales.ts) so the site matches the app. */
+:root {
+	--background: #f6f5f2;
+	--foreground: #141414;
+	--card: #ffffff;
+	--card-foreground: #141414;
+	--primary: #141414;
+	--primary-foreground: #f7f6f3;
+	--muted: #eae7e1;
+	--muted-foreground: #3d3b37;
+	--border: #3d3b37;
+	--ring: #2e4aa8;
+	--accent: #2e4aa8;
+	--accent-foreground: #ffffff;
+	--success: #0f5f28;
+	--success-foreground: #ffffff;
+	--warning: #f2b01e;
+	--warning-foreground: #2a1d00;
+
+	--font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	--body: 20px;
+	--body-line: 30px;
+	--lead: 22px;
+	--lead-line: 33px;
+	--title: 32px;
+	--title-line: 46px;
+	--display: 40px;
+	--display-line: 58px;
+
+	--space-xs: 4px;
+	--space-sm: 8px;
+	--space-md: 12px;
+	--space-lg: 16px;
+	--space-xl: 24px;
+	--space-xxl: 32px;
+
+	--radius-sm: 8px;
+	--radius-md: 16px;
+	--radius-lg: 22px;
+	--radius-full: 999px;
+
+	--touch: 56px;
+	--touch-gap: 14px;
+	--stroke: 2px;
+	--focus: 4px;
+
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0e1322;
+		--foreground: #eef1fa;
+		--card: #192039;
+		--card-foreground: #eef1fa;
+		--primary: #eef1fa;
+		--primary-foreground: #0e1322;
+		--muted: #2e3858;
+		--muted-foreground: #c9cfe6;
+		--border: #8c97bc;
+		--ring: #8fa6ff;
+		--accent: #8fa6ff;
+		--accent-foreground: #0e1322;
+		--success: #4cc474;
+		--success-foreground: #07200f;
+		--warning: #f5be3f;
+		--warning-foreground: #2a1d00;
+		color-scheme: dark;
+	}
+}
+
+@media (prefers-contrast: more) {
+	:root {
+		--background: #000000;
+		--foreground: #ffffff;
+		--card: #000000;
+		--card-foreground: #ffffff;
+		--primary: #ffffff;
+		--primary-foreground: #000000;
+		--muted: #262626;
+		--muted-foreground: #ffffff;
+		--border: #ffffff;
+		--ring: #ffeb3b;
+		--accent: #ffeb3b;
+		--accent-foreground: #000000;
+		--success: #3ddc84;
+		--success-foreground: #000000;
+		--warning: #ffc400;
+		--warning-foreground: #000000;
+		color-scheme: dark;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font);
+	font-size: var(--body);
+	line-height: var(--body-line);
+	padding-block: var(--space-xl) 64px;
+	padding-left: max(var(--space-lg), env(safe-area-inset-left, 0px));
+	padding-right: max(var(--space-lg), env(safe-area-inset-right, 0px));
+}
+
+a {
+	color: var(--accent);
+	text-underline-offset: 4px;
+}
+
+p,
+ul,
+ol {
+	margin: 0;
+}
+
+ul,
+ol {
+	padding-left: var(--space-xl);
+	display: grid;
+	gap: var(--space-sm);
+}
+
+.contenedor {
+	max-width: 44rem;
+	margin: 0 auto;
+	display: grid;
+	gap: var(--space-xxl);
+}
+
+header.barra {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-sm) var(--space-xl);
+	padding-bottom: var(--space-lg);
+	border-bottom: var(--stroke) solid var(--border);
+}
+
+.marca {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-md);
+	min-height: var(--touch);
+	color: var(--foreground);
+	font-size: var(--lead);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.marca img {
+	width: 40px;
+	height: 40px;
+	border-radius: var(--radius-sm);
+}
+
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 var(--space-lg);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav a {
+	display: inline-flex;
+	align-items: center;
+	min-height: var(--touch);
+	font-weight: 600;
+}
+
+nav a[aria-current="page"] {
+	color: var(--foreground);
+	text-decoration-thickness: 3px;
+}
+
+a:focus-visible,
+summary:focus-visible {
+	outline: var(--focus) solid var(--ring);
+	outline-offset: 3px;
+	border-radius: var(--radius-sm);
+}
+
+main {
+	display: grid;
+	gap: var(--space-xl);
+	min-width: 0;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: 600;
+	text-wrap: balance;
+}
+
+h1 {
+	font-size: var(--title);
+	line-height: var(--title-line);
+}
+
+h1.portada {
+	font-size: var(--display);
+	line-height: var(--display-line);
+}
+
+h2 {
+	font-size: var(--lead);
+	line-height: var(--lead-line);
+	margin-top: var(--space-lg);
+}
+
+h3 {
+	font-size: var(--body);
+	line-height: var(--body-line);
+}
+
+.entrada {
+	font-size: var(--lead);
+	line-height: var(--lead-line);
+	color: var(--muted-foreground);
+}
+
+.fecha {
+	color: var(--muted-foreground);
+}
+
+.seccion {
+	display: grid;
+	gap: var(--space-md);
+}
+
+.tarjeta {
+	background: var(--card);
+	color: var(--card-foreground);
+	border: var(--stroke) solid var(--border);
+	border-radius: var(--radius-md);
+	padding: var(--space-xl);
+	display: grid;
+	gap: var(--space-md);
+	min-width: 0;
+}
+
+.tarjetas {
+	display: grid;
+	gap: var(--touch-gap);
+}
+
+.botones {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--touch-gap);
+}
+
+.boton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--touch);
+	padding: 0 var(--space-xl);
+	border-radius: var(--radius-md);
+	border: var(--stroke) solid var(--primary);
+	background: var(--primary);
+	color: var(--primary-foreground);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.boton.secundario {
+	background: transparent;
+	color: var(--foreground);
+	border-color: var(--border);
+}
+
+.correo {
+	font-size: var(--lead);
+	font-weight: 600;
+	overflow-wrap: anywhere;
+}
+
+.estado {
+	justify-self: start;
+	display: inline-flex;
+	align-items: center;
+	min-height: 36px;
+	padding: 0 var(--space-md);
+	border-radius: var(--radius-full);
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.estado.aplica {
+	background: var(--success);
+	color: var(--success-foreground);
+}
+
+.estado.no-aplica {
+	background: var(--muted);
+	color: var(--muted-foreground);
+}
+
+.estado.pendiente {
+	background: var(--warning);
+	color: var(--warning-foreground);
+}
+
+.ley {
+	color: var(--muted-foreground);
+}
+
+mark.falta {
+	background: var(--warning);
+	color: var(--warning-foreground);
+	padding: 0 var(--space-xs);
+	border-radius: var(--space-xs);
+}
+
+dl {
+	margin: 0;
+	display: grid;
+	gap: var(--space-md);
+}
+
+dt {
+	font-weight: 600;
+}
+
+dd {
+	margin: 0;
+}
+
+footer.pie {
+	padding-top: var(--space-lg);
+	border-top: var(--stroke) solid var(--border);
+	color: var(--muted-foreground);
+	display: grid;
+	gap: var(--space-sm);
+}

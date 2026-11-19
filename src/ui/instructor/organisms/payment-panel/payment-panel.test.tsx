@@ -20,12 +20,18 @@ const base: Payment = {
 };
 
 describe("PaymentPanel", () => {
-	it("shows the QR, the cube hint and the wait for a CoDi QR", async () => {
+	it("shows the QR and the wait for a CoDi QR, without the cube hint by default", async () => {
 		await render(<PaymentPanel payment={base} />);
 
 		expect(screen.getByRole("img", { name: "Código de ejemplo, no es CoDi" })).toBeOnTheScreen();
-		expect(screen.getByText("También puede acercar su celular al cubo.")).toBeOnTheScreen();
+		expect(screen.queryByText("También puede acercar su celular al cubo.")).toBeNull();
 		expect(screen.getByText("Esperando el pago…")).toBeOnTheScreen();
+	});
+
+	it("adds the cube hint when the NFC cube is turned on", async () => {
+		await render(<PaymentPanel payment={base} cubeHint />);
+
+		expect(screen.getByText("También puede acercar su celular al cubo.")).toBeOnTheScreen();
 	});
 
 	it("names a real CoDi code as such", async () => {

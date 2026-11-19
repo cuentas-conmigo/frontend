@@ -3,7 +3,9 @@ import { usePreferences } from "~contexts/preferences";
 import { useSession } from "~contexts/session";
 import { messages } from "~messages";
 import { useFlowNavigation } from "~services/navigation";
+import { Text } from "~sharing/atoms/text";
 import { ChoiceRow } from "~sharing/molecules/choice-row";
+import { LegalLinks } from "~sharing/molecules/legal-links";
 import { StepScreen } from "~sharing/organisms/step-screen";
 
 import type { Preferences } from "~typing/preferences";
@@ -46,6 +48,10 @@ export default function AccessibleFormatScreen() {
 					onChange={(value) => setPreference(key, value)}
 				/>
 			))}
+			<Text bold role="heading">
+				{copy.about}
+			</Text>
+			<LegalLinks pages={["privacy", "terms", "support"]} />
 		</StepScreen>
 	);
 }

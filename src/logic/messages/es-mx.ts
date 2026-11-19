@@ -22,6 +22,11 @@ export const esMx = {
 		summary: (count: number) =>
 			count === 1 ? "Falta corregir 1 dato." : `Falta corregir ${count} datos.`,
 	},
+	legal: {
+		privacy: "Aviso de privacidad",
+		terms: "Términos de uso",
+		support: "Ayuda",
+	},
 	signIn: {
 		eyebrow: "Acceso",
 		title: "Inicio de sesión",
@@ -34,10 +39,6 @@ export const esMx = {
 		missingPassword: "Escribe tu contraseña.",
 		wrongLogin: "El usuario o la contraseña no coinciden. Revísalos e inténtalo otra vez.",
 		offline: "No pudimos conectarnos. Revisa tu internet e inténtalo otra vez.",
-		demoTitle: "Cuentas de prueba",
-		demoNote: "Cuenta de demostración, solo en la versión de prueba.",
-		asInstructor: "Entrar como María (da el taller)",
-		asStudent: "Entrar como Rosa (alumna)",
 		accessible: "Formato accesible",
 	},
 	home: {
@@ -161,6 +162,8 @@ export const esMx = {
 		consentNeeded: "Sin su permiso no guardamos la foto.",
 		submit: "Inscribir",
 		later: "Podrás editar los datos más tarde.",
+		privacyNotice:
+			"Cuentas conmigo guarda su nombre, su WhatsApp, quién le ayuda a pagar y su foto, solo si dio permiso, para cobrar sus cuotas. Puede pedir verlos, corregirlos o borrarlos cuando quiera.",
 		errors: {
 			name: "Escribe el nombre.",
 			phone: "El WhatsApp debe tener 10 dígitos.",
@@ -226,6 +229,7 @@ export const esMx = {
 		readAloud: { label: "Leer en voz alta", detail: "Lee cada pantalla al abrirla" },
 		feedback: { label: "Sonido y vibración", detail: "Avisa cuando algo salió bien" },
 		signOut: "Cerrar sesión",
+		about: "Privacidad y ayuda",
 		on: "Activado",
 		off: "Desactivado",
 	},

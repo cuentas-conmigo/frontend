@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { View } from "react-native";
 import { Redirect, useLocalSearchParams, useRouter } from "expo-router";
 import { useMutation } from "@tanstack/react-query";
 import { useSession } from "~contexts/session";
@@ -7,23 +6,25 @@ import { messages } from "~messages";
 import { ApiError } from "~services/api";
 import { useFeedback } from "~services/feedback";
 import { Button } from "~sharing/atoms/button";
-import { Text } from "~sharing/atoms/text";
+import { LegalLinks } from "~sharing/molecules/legal-links";
 import { Notice } from "~sharing/molecules/notice";
 import { serverError, useAppForm } from "~sharing/organisms/form";
 import { StepScreen } from "~sharing/organisms/step-screen";
-import { createStyles, spacing, touch } from "~styles";
 
 import type { Credentials } from "~typing/students";
 
 import { SessionSchema } from "~schemas/session";
 
-const useStyles = createStyles(() => ({
-	demo: { gap: touch.gap, paddingTop: spacing.lg },
-}));
-
 const studentSide = process.env.EXPO_PUBLIC_STUDENT_SIDE === "on";
 
-/** Demo logins for development builds: the backend's seeded account, or anything for the mock. */
+/**
+ * Hidden demo sign-in through `/entrar?demo=maria` (or `rosa`), with no button on screen. It works
+ * in development and in sample-data builds (no API URL), such as the Release build used for store
+ * screenshots. Store builds always set the API URL, so it stays off there.
+ */
+const demoSignIn = __DEV__ || !process.env.EXPO_PUBLIC_API_URL;
+
+/** Demo logins: the backend's seeded account, or anything for the mock. */
 const demoAccounts: Record<string, Credentials | undefined> = {
 	maria: process.env.EXPO_PUBLIC_DEMO_USUARIO
 		? {
@@ -42,7 +43,6 @@ const demoAccounts: Record<string, Credentials | undefined> = {
 const isWrongLogin = (error: unknown) => error instanceof ApiError && error.code === "unauthorized";
 
 export default function SignInScreen() {
-	const styles = useStyles();
 	const router = useRouter();
 	const feedback = useFeedback();
 	const { session, signIn } = useSession();
@@ -66,14 +66,12 @@ export default function SignInScreen() {
 
 	useEffect(() => {
 		const account = demo ? demoAccounts[demo] : undefined;
-		if (__DEV__ && account && !session) enter.mutate(account);
+		if (demoSignIn && account && !session) enter.mutate(account);
 	}, [demo, session, enter.mutate]);
 
 	if (session) return <Redirect href={session.role === "student" ? "/tarjeta" : "/"} />;
 
 	const offline = enter.error && !isWrongLogin(enter.error) ? copy.offline : undefined;
-	const maria = __DEV__ ? demoAccounts.maria : undefined;
-	const rosa = __DEV__ ? demoAccounts.rosa : undefined;
 
 	return (
 		<StepScreen eyebrow={copy.eyebrow} title={copy.title} hint={copy.hint}>
@@ -113,32 +111,7 @@ export default function SignInScreen() {
 				label={copy.accessible}
 				onPress={() => router.push("/formato")}
 			/>
-			{maria || rosa ? (
-				<View style={styles.demo}>
-					<Text bold role="heading">
-						{copy.demoTitle}
-					</Text>
-					<Text tone="mutedForeground">{copy.demoNote}</Text>
-					{maria ? (
-						<Button
-							variant="outline"
-							icon="account"
-							label={copy.asInstructor}
-							busy={enter.isPending}
-							onPress={() => enter.mutate(maria)}
-						/>
-					) : null}
-					{rosa ? (
-						<Button
-							variant="outline"
-							icon="account"
-							label={copy.asStudent}
-							busy={enter.isPending}
-							onPress={() => enter.mutate(rosa)}
-						/>
-					) : null}
-				</View>
-			) : null}
+			<LegalLinks />
 		</StepScreen>
 	);
 }

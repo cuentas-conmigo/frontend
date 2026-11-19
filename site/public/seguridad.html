@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title>Seguridad y leyes · Cuentas conmigo</title>
+	<meta name="description" content="Qué leyes mexicanas aplican a Cuentas conmigo, cómo las cumplimos y cómo protegemos tus datos.">
+	<link rel="icon" href="/icono.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+	<link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+	<div class="contenedor">
+		<header class="barra">
+			<a class="marca" href="/"><img src="/icono.png" alt="" width="40" height="40">Cuentas conmigo</a>
+			<nav aria-label="Principal">
+				<ul>
+					<li><a href="/soporte">Ayuda</a></li>
+					<li><a href="/privacidad">Privacidad</a></li>
+					<li><a href="/terminos">Términos</a></li>
+					<li><a href="/seguridad" aria-current="page">Seguridad</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h1>Seguridad y leyes</h1>
+			<p class="fecha">Última actualización: 18 de noviembre de 2026</p>
+			<p class="entrada">Cuentas conmigo maneja datos personales y avisos de pago. Aquí explicamos qué leyes mexicanas nos aplican, cómo las cumplimos y cómo protegemos tu información.</p>
+
+			<section class="seccion">
+				<h2>Leyes y normas</h2>
+				<div class="tarjetas">
+					<article class="tarjeta">
+						<span class="estado aplica">Aplica</span>
+						<h3>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</h3>
+						<p class="ley">Diario Oficial de la Federación, 20 de marzo de 2025. Autoridad: Secretaría Anticorrupción y Buen Gobierno.</p>
+						<p>Tenemos un <a href="/privacidad">aviso de privacidad integral</a>, atendemos tus derechos ARCO en los plazos de la ley, no tratamos datos sensibles, pedimos permiso antes de guardar la foto de un alumno y avisaremos de inmediato si ocurre una vulneración que te afecte.</p>
+					</article>
+					<article class="tarjeta">
+						<span class="estado no-aplica">No aplica</span>
+						<h3>Ley para Regular las Instituciones de Tecnología Financiera (Ley Fintech)</h3>
+						<p class="ley">Diario Oficial de la Federación, 9 de marzo de 2018. Autoridad: Comisión Nacional Bancaria y de Valores.</p>
+						<p>Esta ley regula a quienes captan, guardan o transfieren dinero de otras personas, como las instituciones de fondos de pago electrónico y las plataformas de financiamiento colectivo. Cuentas conmigo no hace nada de eso: no abre cuentas, no recibe ni guarda dinero, y no presta ni invierte. El dinero viaja por CoDi entre los bancos.</p>
+					</article>
+					<article class="tarjeta">
+						<span class="estado aplica">Lo usamos</span>
+						<h3>CoDi y SPEI del Banco de México</h3>
+						<p class="ley">Reglas del Banco de México para los participantes de SPEI.</p>
+						<p>Estas reglas obligan a los bancos que mueven el dinero. Nosotros usamos CoDi a través de Pey: solo marcamos un pago como recibido cuando llega una confirmación con firma válida, y rechazamos las que no la tienen.</p>
+					</article>
+					<article class="tarjeta">
+						<span class="estado no-aplica">No aplica</span>
+						<h3>PCI DSS, el estándar para datos de tarjetas</h3>
+						<p>La app no recibe, procesa ni guarda números de tarjeta. Los pagos con CoDi se autorizan dentro de la app del banco de quien paga.</p>
+					</article>
+					<article class="tarjeta">
+						<span class="estado aplica">Aplica</span>
+						<h3>Ley Federal de Protección al Consumidor</h3>
+						<p class="ley">Autoridad: Procuraduría Federal del Consumidor (Profeco).</p>
+						<p>Publicamos <a href="/terminos">términos de uso</a> claros, decimos que la app no tiene costo y damos un correo de contacto para quejas y aclaraciones.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="seccion">
+				<h2>Cómo protegemos tus datos</h2>
+				<ul>
+					<li>Las contraseñas se guardan cifradas con Argon2. Nadie, ni nuestro equipo, puede leerlas.</li>
+					<li>La app se comunica con nuestro servicio por HTTPS.</li>
+					<li>Las llaves para crear cobros con Pey viven solo en nuestro servidor, guardadas en AWS Secrets Manager. Nunca están en la app.</li>
+					<li>Cada aviso de pago se verifica con su firma antes de marcar un cobro como pagado.</li>
+					<li>Los datos se guardan en Amazon Web Services, en su región de México.</li>
+					<li>Guardamos solo los datos necesarios para cobrar: nada de tarjetas, contraseñas del banco ni cuentas bancarias de quien paga.</li>
+				</ul>
+			</section>
+
+			<section class="seccion">
+				<h2>Certificaciones</h2>
+				<div class="tarjeta">
+					<span class="estado pendiente">En camino</span>
+					<p>Cuentas conmigo todavía no tiene certificaciones propias, como ISO/IEC 27001 o SOC 2. Preferimos decirlo claro que mostrar sellos que no tenemos.</p>
+					<p>Nuestros proveedores de infraestructura sí mantienen certificaciones y auditorías para sus servicios. Puedes consultarlas en sus sitios: <a href="https://aws.amazon.com/compliance/programs/">programas de cumplimiento de AWS</a> y <a href="https://www.cloudflare.com/trust-hub/compliance-resources/">recursos de cumplimiento de Cloudflare</a>.</p>
+				</div>
+			</section>
+
+			<section class="seccion">
+				<h2>¿Encontraste un problema de seguridad?</h2>
+				<p>Escríbenos a <a href="mailto:develop@tuentyfaiv.com">develop@tuentyfaiv.com</a> con los detalles. Lo revisamos y te respondemos.</p>
+			</section>
+		</main>
+		<footer class="pie">
+			<p>Cuentas conmigo · <a href="mailto:develop@tuentyfaiv.com">develop@tuentyfaiv.com</a></p>
+			<p><a href="/privacidad">Aviso de privacidad</a> · <a href="/terminos">Términos de uso</a> · <a href="/seguridad">Seguridad y leyes</a></p>
+		</footer>
+	</div>
+</body>
+</html>

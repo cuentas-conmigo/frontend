@@ -5,6 +5,7 @@ import { ApiError } from "~services/api";
 import { useFeedback } from "~services/feedback";
 import { useFlowNavigation } from "~services/navigation";
 import { Text } from "~sharing/atoms/text";
+import { LegalLinks } from "~sharing/molecules/legal-links";
 import { serverError, useAppForm } from "~sharing/organisms/form";
 import { StepScreen } from "~sharing/organisms/step-screen";
 
@@ -108,6 +109,8 @@ export default function NewStudentScreen() {
 				}
 			</form.Subscribe>
 			<Text tone="mutedForeground">{copy.later}</Text>
+			<Text tone="mutedForeground">{copy.privacyNotice}</Text>
+			<LegalLinks pages={["privacy"]} />
 			<form.AppForm>
 				<form.Submit label={copy.submit} icon="check" variant="success" />
 			</form.AppForm>
