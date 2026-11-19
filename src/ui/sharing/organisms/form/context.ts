@@ -1,7 +1,18 @@
 import { createFormHookContexts, useStore } from "@tanstack/react-form";
 
+import type { AnyFormApi } from "@tanstack/react-form";
+
 export const { fieldContext, formContext, useFieldContext, useFormContext } =
 	createFormHookContexts();
+
+/**
+ * Submits after re-running the blur validation. Leaving one field validates the whole form, so a
+ * later field that was still empty keeps a stale error that would otherwise block the submit.
+ */
+export async function submitForm(form: Pick<AnyFormApi, "validate" | "handleSubmit">) {
+	await form.validate("blur");
+	await form.handleSubmit();
+}
 
 /** First error of a field, in plain words, or `undefined`. Accepts schema issues and server strings. */
 export function errorText(errors: readonly unknown[]): string | undefined {

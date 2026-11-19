@@ -2,6 +2,10 @@
 
 App para que quienes dan talleres a personas mayores cobren sus cuotas con CoDi (vía Pey). Hecha con Expo (React Native).
 
+## Pruébala en el navegador
+
+Abre [cuentasconmigo.tuentyfaiv.com/app](https://cuentasconmigo.tuentyfaiv.com/app) en el celular o la computadora y entra con la cuenta de tallerista que el equipo te comparta. No necesitas instalar nada. Los cobros son reales: MXN 1 cada uno, se pagan desde la app de tu banco con CoDi y no se reembolsan.
+
 ## Pruébala con Expo Go
 
 Mientras la app está en revisión en App Store y Play Store:
@@ -29,3 +33,5 @@ Agrega librerías con `bunx expo install <paquete>` para que las versiones coinc
 
 - Vista previa para Expo Go: `EXPO_NO_DOTENV=1 EXPO_GO_PREVIEW=1 EXPO_PUBLIC_API_URL=https://d331njsh1bdk0b.cloudfront.net bunx eas-cli update --channel preview --environment preview --message "<qué cambió>"`. `EXPO_GO_PREVIEW=1` hace que la versión coincida con Expo Go, y `EXPO_NO_DOTENV=1` evita que `.env.local` entre al paquete.
 - Builds para las tiendas: `bunx eas-cli build --profile production -p ios` o `-p android`, y luego `bunx eas-cli submit -p ios` o `-p android`.
+- Ficha de App Store: `bunx eas-cli metadata:push`, con los textos de `store.config.js`; ese archivo indica qué variables de entorno necesita.
+- Sitio y app web en [cuentasconmigo.tuentyfaiv.com](https://cuentasconmigo.tuentyfaiv.com): `bun run export:web` arma la app en `site/public/app`, y `cd site && bunx wrangler deploy` publica todo en Cloudflare. La app queda en `/app`, y las páginas de ayuda, privacidad, términos y seguridad quedan en la raíz.

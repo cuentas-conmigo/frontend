@@ -5,7 +5,7 @@ import { useFeedback } from "~services/feedback";
 import { useFlowNavigation } from "~services/navigation";
 import { Text } from "~sharing/atoms/text";
 import { Notice } from "~sharing/molecules/notice";
-import { serverError, useAppForm } from "~sharing/organisms/form";
+import { serverError, submitForm, useAppForm } from "~sharing/organisms/form";
 import { StepScreen } from "~sharing/organisms/step-screen";
 
 import { useJoinWorkshop } from "~queries";
@@ -75,7 +75,7 @@ export default function JoinScreen() {
 						placeholder={copy.placeholder}
 						autoCapitalize="characters"
 						autoCorrect={false}
-						onSubmitEditing={() => form.handleSubmit()}
+						onSubmitEditing={() => submitForm(form)}
 					/>
 				)}
 			</form.AppField>

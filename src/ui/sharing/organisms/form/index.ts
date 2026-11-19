@@ -26,4 +26,4 @@ export const { useAppForm, withForm } = createFormHook({
 	},
 });
 
-export { errorText, serverError } from "./context";
+export { errorText, serverError, submitForm } from "./context";

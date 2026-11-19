@@ -1,6 +1,6 @@
 import { useStore } from "@tanstack/react-form";
 import { Button } from "~sharing/atoms/button";
-import { useFormContext } from "~sharing/organisms/form/context";
+import { submitForm, useFormContext } from "~sharing/organisms/form/context";
 
 import type { Props } from "./form-submit.proptypes";
 
@@ -18,7 +18,7 @@ export function FormSubmit({ label, icon, variant }: Props) {
 			icon={icon}
 			variant={variant}
 			busy={submitting}
-			onPress={() => form.handleSubmit()}
+			onPress={() => submitForm(form)}
 		/>
 	);
 }

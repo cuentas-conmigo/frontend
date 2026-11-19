@@ -54,3 +54,6 @@ skills-lock.json
 
 # Cloudflare
 .wrangler/
+
+# Web app export, rebuilt by `bun run export:web`
+site/public/app/

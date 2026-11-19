@@ -8,6 +8,7 @@
 		"android": "expo start --android",
 		"ios": "expo start --ios",
 		"web": "expo start --web",
+		"export:web": "EXPO_NO_DOTENV=1 EXPO_PUBLIC_API_URL=https://d331njsh1bdk0b.cloudfront.net EXPO_PUBLIC_STUDENT_SIDE=off EXPO_PUBLIC_NFC_CUBE=off expo export -p web --output-dir site/public/app",
 		"check": "tsc --noEmit",
 		"lint": "biome check",
 		"lint:fix": "biome check --fix",

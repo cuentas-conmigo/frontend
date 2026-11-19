@@ -8,7 +8,7 @@ import { useFeedback } from "~services/feedback";
 import { Button } from "~sharing/atoms/button";
 import { LegalLinks } from "~sharing/molecules/legal-links";
 import { Notice } from "~sharing/molecules/notice";
-import { serverError, useAppForm } from "~sharing/organisms/form";
+import { serverError, submitForm, useAppForm } from "~sharing/organisms/form";
 import { StepScreen } from "~sharing/organisms/step-screen";
 
 import type { Credentials } from "~typing/students";
@@ -99,7 +99,7 @@ export default function SignInScreen() {
 				listeners={{ onChange: ({ fieldApi }) => fieldApi.setMeta(serverError(undefined)) }}
 			>
 				{(field) => (
-					<field.PasswordField label={copy.password} onSubmitEditing={() => form.handleSubmit()} />
+					<field.PasswordField label={copy.password} onSubmitEditing={() => submitForm(form)} />
 				)}
 			</form.AppField>
 			<form.AppForm>

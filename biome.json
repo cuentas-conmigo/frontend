@@ -206,7 +206,7 @@
 			}
 		},
 		{
-			"includes": ["*.config.ts", "*.config.mts", "*.config.js"],
+			"includes": ["*.config.ts", "*.config.mts", "*.config.js", "site/src/worker.js"],
 			"linter": {
 				"rules": {
 					"style": {
